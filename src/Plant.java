@@ -1,9 +1,5 @@
-import java.io.PrintStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.zip.DataFormatException;
 
 public class Plant implements Comparable<Plant> {
     private String name;

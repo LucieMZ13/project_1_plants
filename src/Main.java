@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
 
 public class Main {
     private static final String FILENAME = "resources/kvetiny.txt";
@@ -8,6 +7,7 @@ public class Main {
 
     public static void main(String[] args)  {
         PlantManager manager = new PlantManager();
+        PlantManager manager2 = new PlantManager();
 
         try {
             manager.readFromFile(FILENAME,DELIMITER);
@@ -22,9 +22,12 @@ public class Main {
             }
             manager.removePlant(2);
             manager.writeToFile(FILENAMEWRITE,DELIMITER);
-            manager.readFromFile(FILENAMEWRITE,DELIMITER);
-            manager.sortByNameAndWatering();
-            manager.getListOfPlants().forEach(plant ->
+            manager2.readFromFile(FILENAMEWRITE,DELIMITER);
+            manager2.sortByNameAndWatering();
+            manager2.getListOfPlants().forEach(plant ->
+                    System.out.println(plant.toString()));
+            Collections.sort(manager2.getListOfPlants());
+            manager2.getListOfPlants().forEach(plant ->
                     System.out.println(plant.toString()));
 
         } catch (PlantException e) {
